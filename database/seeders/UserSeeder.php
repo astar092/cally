@@ -18,9 +18,9 @@ class UserSeeder extends Seeder
     {
         $user = new User();
         $user->name = 'admin';
-        $user->email = 'admin';
+        $user->email = 'admin@test.com';
         $user->email_verified_at = '2023-01-01';
-        $user->password = Hash::make('inventory_password');
+        $user->password = Hash::make('password');
 
         $user->save();
         $user->assignRole('Admin');
