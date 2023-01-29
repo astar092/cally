@@ -1,0 +1,18 @@
+{
+    "Hello!": "Здравствуйте,",
+    "Login": "Вход",
+    "Email": "Емайл",
+    "Password": "Пароль",
+    "Log in": "Войти",
+    "Remember me": "Запомнить меня",
+    "Forgot your password?": "Забыли пароль?",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "Забыли пароль? Введите свой емейл для востановления, на ваш емаийл придет ссылка для выбора нового пароля.",
+    "Email Password Reset Link": "Отправить ссылку на почту",
+    "Reset Password Notification": "Заявка на сброс пароля",
+    "You are receiving this email because we received a password reset request for your account.": "Мы получили заявку на сброс вашего пароля на нашем сайте",
+    "Reset Password": "Сбросить пароль",
+    "This password reset link will expire in :count minutes.": "Эта ссылка будет действовать только :count минут.",
+    "If you did not request a password reset, no further action is required.": "Если вы не сборсите пароль в течении этого времени, заявка будет аннулирована",
+    "Regards": "С уважением",
+    "Confirm Password": "Подтвердите пароль"
+}
