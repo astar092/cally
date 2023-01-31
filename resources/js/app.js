@@ -1,7 +1,14 @@
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+window.$ = window.jQuery = require('jquery');
+
 import './bootstrap';
+require('bootstrap');
 
-import Alpine from 'alpinejs';
+import 'bootstrap-confirmation2';
 
-window.Alpine = Alpine;
+// import Alpine from 'alpinejs';
 
-Alpine.start();
+// window.Alpine = Alpine;
+
+// Alpine.start();

@@ -14,5 +14,9 @@
     "This password reset link will expire in :count minutes.": "Эта ссылка будет действовать только :count минут.",
     "If you did not request a password reset, no further action is required.": "Если вы не сборсите пароль в течении этого времени, заявка будет аннулирована",
     "Regards": "С уважением",
-    "Confirm Password": "Подтвердите пароль"
+    "Confirm Password": "Подтвердите пароль",
+    "Administration": "Администрирование",
+    "Logout": "Выйти",
+    "Users": "Пользователи",
+    "Actions": "Действия"
 }
