@@ -9,42 +9,30 @@
             <thead>
             <tr>
                 <td>{{__('ID')}}</td>
-                <td>{{@trans('user.Name')}}</td>
-                <td>{{@trans('user.Email')}}</td>
-                <td>{{@trans('user.User Role')}}</td>
-                <td>{{@trans('user.Status')}}</td>
+                <td>{{__('user.Name')}}</td>
+                <td>{{__('user.Email')}}</td>
+                <td>{{__('user.User Role')}}</td>
+                <td>{{__('user.Status')}}</td>
                 <td>{{__('Actions')}}</td>
             </tr>
             </thead>
             <tbody>
-            @foreach ($users as $index => $user)
+            @foreach ($users as $user)
                 <tr>
-                    <td>{{$users->firstItem() + $index}}</td>
+                    <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->user_role['role_name_'. Config::get('app.locale')] ?? ''}}</td>
-                    <td></td>
+                    <td>@if($user->roles->first()){{$user->roles->first()->name}}@endif</td>
+                    <td>{{$user->is_active ? 'Active' : 'Not active'}}</td>
                     <td>
-                        @can('edit-users')
-                            <a href="{{ route('admin.users.edit', $user->id)}}" class="icon"><i class="edit icon"></i></a>
-                        @endcan
-                        @can('delete-users')
-                            <form action="{{ route('admin.users.destroy', $user)}}" method="POST" class="delete-form">
-                                @csrf
-                                @method('DELETE')
-                                
-                                <button type="submit" data-toggle="confirmation"><i class="trash alternate outline icon"></i></a>
-                            </form>
-                        @endcan
+                        @include('layouts.admin.action-buttons', ['moduleName' => 'users', 'obj' => $user])
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-        @can('user', 'create')
-            <div class="creation-buttons">
-                <a href="{{ route('admin.users.create')}}" class="btn btn-normal">{{@trans('user.New User')}}</a>
-            </div>
-        @endcan
-        <div>
+        @include('layouts.admin.table-footer', 
+            ['moduleName' => 'users', 'createButtonText' => trans('user.New User'), 'obj' => $users]
+        )
+    <div>
 @endsection

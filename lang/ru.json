@@ -5,6 +5,7 @@
     "Password": "Пароль",
     "Log in": "Войти",
     "Remember me": "Запомнить меня",
+    "Role": "Роль",
     "Forgot your password?": "Забыли пароль?",
     "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "Забыли пароль? Введите свой емейл для востановления, на ваш емаийл придет ссылка для выбора нового пароля.",
     "Email Password Reset Link": "Отправить ссылку на почту",
@@ -18,5 +19,18 @@
     "Administration": "Администрирование",
     "Logout": "Выйти",
     "Users": "Пользователи",
-    "Actions": "Действия"
+    "Actions": "Действия",
+    "role_name_Admin": "Администратор",
+    "Not selected": "Не выбрано",
+    "Edit": "Редактировать",
+    "Create": "Создать",
+
+    "create-users": "Создать пользователя",
+    "edit-users": "Редактировать пользователя",
+    "delete-users": "Удалять пользователя",
+    "view-users": "Видеть пользователей",
+    "create-roles": "Создать роль",
+    "edit-roles": "Редактировать роль",
+    "delete-roles": "Удалять роль",
+    "view-roles": "Видеть роли"
 }

@@ -17,19 +17,18 @@
 	@endif
 </div>
 <div class="ui vertical sidebar menu left">
- 	<!-- Authentication Links -->
 	@guest
 	@else
 		<div class="item">
             <div class="menu">
                 <div class="header">{{__('Administration')}}</div>
-                @can('create-users')
+                @can('view-users')
                     <a class="item {{(Route::currentRouteName() == 'admin.users') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
                         {{__('user.Users')}}
                     </a>
                 @endcan
-                @can('user-roles', 'view')
-                    <a class="item {{(Route::currentRouteName() == 'admin.userroles') ? 'active' : '' }}" href="{{ route('admin.userroles') }}">
+                @can('view-roles')
+                    <a class="item {{(Route::currentRouteName() == 'admin.userroles') ? 'active' : '' }}" href="{{ route('admin.roles.index') }}">
                         {{__('user.User Roles')}}
                     </a>
                 @endcan
