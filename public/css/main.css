@@ -313,8 +313,7 @@ span.icon {
   text-decoration: inherit;
   text-align: center;
   speak: none;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 span.icon.glyphicon.glyphicon-plus:before {
   content: "\f067";
@@ -517,6 +516,7 @@ span.icon.glyphicon.glyphicon-minus:before {
   border: 0px;
   padding: 0px;
   color: #7A8896;
+  background: none;
 }
 
 .ui.modal,

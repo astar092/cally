@@ -32,6 +32,7 @@
         let APP_URL = {!! json_encode(url('/')) !!}
     </script>
 
+@vite('resources/css/app.css')
     @yield('scripts')
 </head>
 
