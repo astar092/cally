@@ -1,7 +1,7 @@
 <div class="ui fixed huge top-menu menu">
 	<div class="logo-item item">
 	    <div class="ui logo icon image">
-			<img src="{{ asset('/images/digital-agro-logo.png') }}">
+			<img src="{{ asset('/images/logo.png') }}">
 	    </div>
 	    <div class="agriculture-title">
 	    	<a href="">ABToy - Inventory</a>
