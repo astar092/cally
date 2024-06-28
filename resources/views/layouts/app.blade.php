@@ -16,20 +16,20 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/datepicker-locale-ru.js'])
 
     @vite(['public/js/script.js'])
+    @vite(['resources/css/semantic.min.css'])
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.css">
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.css"> --}}
 
     <!-- Styles -->
     @vite(['public/css/app.css'])
-    @vite(['public/css/main.css'])
+    @vite(['resources/sass/main.scss'])
     {{-- <link href="{{ asset('css/datepicker.css') }}" rel="stylesheet">
 
     {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css"> --}}
     {{-- <link href="{{ mix('css/main.css') }}" rel="stylesheet" type="text/css"> --}}
-    {{-- <link href="{{ asset('css/datepicker.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/locales/bootstrap-datepicker.ru.min.js') }}"></script> --}}
+    {{-- <link href="{{ asset('css/datepicker.css') }}" rel="stylesheet"> --}}
+    {{-- <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/select2.min.js') }}"></script> --}}
 
     <script type="text/javascript">
         let APP_URL = {!! json_encode(url('/')) !!}
