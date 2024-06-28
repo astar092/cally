@@ -8,7 +8,8 @@
             <div class="form-groups col-md-12">
                 <div class="form-group required col-md-6">
                     <label for="name" class="control-label">{{ __('user.Name') }}:</label>
-                    <input id="name" type="text" class="form-control" name="name" value="{{old('name')}}" required>
+                    <input id="subscribe_until" class="datepicker form-control" type="text" name="subscribe_until">
+
                 </div>
                 <div class="form-group required col-md-6">
                     <label for="email" class="control-label">{{ __('user.Email') }}:</label>

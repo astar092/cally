@@ -13,26 +13,28 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/datepicker-locale-ru.js'])
 
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+    @vite(['public/js/script.js'])
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.css">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ mix('css/main.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/datepicker.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+    @vite(['public/css/app.css'])
+    @vite(['public/css/main.css'])
+    {{-- <link href="{{ asset('css/datepicker.css') }}" rel="stylesheet">
+
+    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css"> --}}
+    {{-- <link href="{{ mix('css/main.css') }}" rel="stylesheet" type="text/css"> --}}
+    {{-- <link href="{{ asset('css/datepicker.css') }}" rel="stylesheet">
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/locales/bootstrap-datepicker.ru.min.js') }}"></script>
+    <script src="{{ asset('js/locales/bootstrap-datepicker.ru.min.js') }}"></script> --}}
 
     <script type="text/javascript">
         let APP_URL = {!! json_encode(url('/')) !!}
     </script>
 
-@vite('resources/css/app.css')
     @yield('scripts')
 </head>
 
