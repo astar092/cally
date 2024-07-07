@@ -79,22 +79,26 @@ a.icon {
 .pull-right {
     float: right;
 }
+.btn {
+    i {
+        margin-top: -2px;
+    }
+    &.btn-primary {
+        background: $active-color;
+        border: 1px solid $active-color;
+    }
 
-.btn.btn-primary {
-    background: $active-color;
-    border: 1px solid $active-color;
-}
+    &.btn-normal {
+        background: $normal-button-background;
+        color: #354052;
+        border: 1px solid $gray-background-color;
+    }
 
-.btn.btn-normal {
-    background: $normal-button-background;
-    color: #354052;
-    border: 1px solid $gray-background-color;
-}
-
-.btn.btn-success {
-    background: $green-sucess-color;
-    color: white;
-    border: 1px solid $green-sucess-color;
+    &.btn-success {
+        background: $green-sucess-color;
+        color: white;
+        border: 1px solid $green-sucess-color;
+    }
 }
 
 

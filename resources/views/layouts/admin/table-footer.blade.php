@@ -1,8 +1,8 @@
 @can('create-'.$moduleName)
     <div class="creation-buttons">
-        <a href="{{ route('admin.'.$moduleName.'.create')}}" class="btn btn-normal">{{$createButtonText}}</a>
+        <a href="{{ route('admin.'.$moduleName.'.create')}}" class="btn btn-primary"><i class="square plus icon"></i>{{$createButtonText}}</a>
         @if(isset($isExcelExportIncluded) && $isExcelExportIncluded != null) 
-            <a href="{{ route('admin.'.$moduleName.'.export.excel', $filters)}}" class="btn btn-primary">{{__('Excel Export')}}</a>
+            <a href="{{ route('admin.'.$moduleName.'.export.excel', $filters)}}" class="btn btn-normal">{{__('Excel Export')}}</a>
         @endif
     </div>
 @endcan
