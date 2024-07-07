@@ -1,8 +1,8 @@
 <div class="ui fixed huge top-menu menu">
 	<div class="logo-item item">
-	    <div class="ui logo icon image">
+	    {{-- <div class="ui logo icon image">
 			<img src="{{ asset('/images/logo.png') }}">
-	    </div>
+	    </div> --}}
 	    <div class="agriculture-title">
 			<a href="">{{ config('app.name', 'Sample project') }}</a>
 	    </div>
@@ -19,21 +19,29 @@
 <div class="ui vertical sidebar menu left">
 	@guest
 	@else
-		<div class="item">
-            <div class="menu">
-                <div class="header">{{__('Administration')}}</div>
-                @can('view-users')
-                    <a class="item {{(Route::currentRouteName() == 'admin.users') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
-                        {{__('user.Users')}}
-                    </a>
-                @endcan
-                @can('view-roles')
-                    <a class="item {{(Route::currentRouteName() == 'admin.userroles') ? 'active' : '' }}" href="{{ route('admin.roles.index') }}">
-                        {{__('user.User Roles')}}
-                    </a>
-                @endcan
-            </div>
-        </div>
+		@canany(['view-users', 'view-roles'])
+			<div class="faq-item">
+				<input class="faq-input" type="checkbox" id="1">
+				<label class="faq-title" for="1">{{__('Пользователь')}}</label>
+				<div class="faq-text">
+					<div class="header"></div>
+					@can('view-users')
+						<a class="item {{(Route::currentRouteName() == 'admin.users') ? 'active' : '' }}"
+						href="{{ route('admin.users.index') }}"
+						>
+							{{__('user.Users')}}
+						</a>
+					@endcan
+					@can('view-roles')
+						<a class="item {{(Route::currentRouteName() == 'admin.userroles') ? 'active' : '' }}"
+						href="{{ route('admin.roles.index') }}"
+						>
+							{{__('user.User Roles')}}
+						</a>
+					@endcan
+				</div>
+			</div>
+		@endcanany
 	@endguest
 </div>
 

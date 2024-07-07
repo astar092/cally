@@ -7,6 +7,6 @@
         @csrf
         @method('DELETE')
         
-        <button type="submit" data-toggle="confirmation"><i class="trash alternate outline icon"></i></a>
+        <button type="submit" data-toggle="confirmation"><i class="trash alternate icon"></i></a>
     </form>
 @endcan

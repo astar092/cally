@@ -108,7 +108,7 @@ a.icon {
     font-family: inherit;
     z-index: 10001;
     border: none;
-    height: 70px;
+    height: 50px;
 
     .item {
         color: $main-color;
@@ -117,12 +117,12 @@ a.icon {
         }
 
         &.page-title {
-            font-size: 22px;
+            font-size: 18px !important;
         }
     }
     .logo-item {
-        width: 300px;
-        padding: 15px 20px;
+        width: 220px;
+        padding: 15px 5px;
         padding-right: 10px;
         .logo.icon {
             height: 100%;
@@ -171,18 +171,18 @@ a.icon {
     -webkit-transform: none;
     transform: none;
     z-index: 10000;
-    width: 300px;
-    padding-top: 90px;
+    width: 210px;
+    padding-top: 50px;
     border: 0px;
-    height: calc(100% - 48px) !important;
-    background: url('/resources/images/menu-bg.jpg');
+    height: calc(100% - 32px) !important;
+    background-color: #3a87ad;
 
     .item {
         color: white;
-        font-size: 16px;
+        font-size: 14px !important;
         font-family: $main-font;
-        font-weight: 700;
-        padding: 15px 30px;
+        font-weight: 500;
+        padding: 9px 22px;
         padding-right: 15px;
 
         &:before {
@@ -243,7 +243,7 @@ a.icon {
     position: fixed;
     bottom: 0px;
     left: 0px;
-    width: 300px;
+    width: 210px;
     font-size: 18px;
     z-index: 10001;
 
@@ -251,9 +251,9 @@ a.icon {
         width: 100%;
         color: #34495e;
         background: white;
-        line-height: 1rem;
+        line-height: 0.8rem;
         display: block;
-        padding: 15px 20px;
+        padding: 10px 15px;
         text-decoration: none;
         i.icon {
             line-height: inherit;
@@ -262,7 +262,7 @@ a.icon {
 
     .change-language {
         position: absolute;
-        top: 11px;
+        top: 3px;
         right: 5px;
         font-size: 15px;
     }
@@ -281,14 +281,18 @@ a.icon {
 
 body > .container {
     position: relative;
-    top: 70px;
-    left: 300px;
+    top: 45px;
+    left: 205px;
     margin: 0px;
     padding: 0px;
-    width: calc(100% - 300px);
+    width: calc(100% - 195px);
     height: calc(100% - 70px);
     padding-top: 20px;
     padding-left: 15px;
+    .ui.raised.segment {
+        margin: 0px;
+        padding: 15px 0px;
+    }
 }
 
 // override bootstrap patterns
@@ -688,7 +692,80 @@ span.icon {
     margin: 0;
     color: #333;
   }
-
+  .faq {
+      max-width: 500px;
+  
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none;
+  }
+  
+  .item{
+      font-size: 14px !important;
+  }
+  
+  .faq-item:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  .faq-title {
+      font-weight: 500;
+      font-size: 14px;
+      display: block;
+      padding-top: 8px;
+      padding-left: 10px;
+      padding-bottom: 10px !important;
+      margin-bottom: 0;
+      position: relative;
+  
+      color: #fff;
+      cursor: pointer;
+  
+      transition: background .2s ease-out;
+  }
+  
+  .faq-title:after {
+      content: "\2303";
+      display: block;
+  
+      position: absolute;
+      transform: rotate(180deg);
+      padding-top: 40px;
+  
+      top: 20%;
+      right: 15px;
+  }
+  
+  .faq-input:checked ~ .faq-title:after {
+      content: "\2303";
+      display: block;
+  
+      position: absolute;
+      top: 10%;
+      right: 15px;
+  
+      transform: translateY(-50%);
+  }
+  
+  .faq-input {
+      width: 0;
+      height: 0;
+  
+      -webkit-appearance: none;
+      appearance: none;
+  
+      position: absolute;
+  }
+  
+  
+  .faq-input:checked ~ .faq-text {
+      display: none;
+  }
+  
+  .faq-text {
+      font-size: 10px;
+  }
+  
   @media (max-width: 800px) {
     input[type="text"], input[type="number"] {
         -webkit-appearance: none;
