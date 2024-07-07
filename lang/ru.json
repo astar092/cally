@@ -22,8 +22,12 @@
     "Actions": "Действия",
     "role_name_Admin": "Администратор",
     "Not selected": "Не выбрано",
+    "Name": "Имя",
     "Edit": "Редактировать",
     "Create": "Создать",
+    "Search": "Искать",
+    "Excel Export": "Экспорт Excel",
+    "Created At": "Создано в",
 
     "create-users": "Создать пользователя",
     "edit-users": "Редактировать пользователя",

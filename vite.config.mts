@@ -5,7 +5,6 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/semantic.min.scss',
                 'resources/sass/main.scss',
                 'resources/css/app.css',
                 'resources/js/app.js',
@@ -24,9 +23,9 @@ export default defineConfig({
             },
         }
     ],
-    server: { 
-        hmr: {
-            host: 'localhost',
-        },
-    },
+    // server: { 
+    //     hmr: {
+    //         host: 'localhost',
+    //     },
+    // },
 });

@@ -4,7 +4,7 @@
 			<img src="{{ asset('/images/logo.png') }}">
 	    </div>
 	    <div class="agriculture-title">
-	    	<a href="">ABToy - Inventory</a>
+			<a href="">{{ config('app.name', 'Sample project') }}</a>
 	    </div>
 		<a class="launch icon" href="#">
 			<i class="content icon"></i>

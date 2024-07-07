@@ -5,6 +5,24 @@
         @include('layouts.errors')
         @include('layouts.success')
 
+        <form action="#" class="filter-form">
+            <div class="filters form-groups col-md-12">
+                {{-- <div class="filter-box col-md-3 row">
+                    <input class="form-control datepicker @if(!isset($filters['date_from'])) empty-value @endif"
+                        @if(isset($filters['date_from']))value="{{ $filters['date_from']}}"@endif
+                        name="filters[date_from]" autocomplete="off" placeholder="{{ __('Date From') }}"/>
+                </div> --}}
+
+                <div class="filter-box form-group col-md-3">
+                    <input class="form-control" type="text" name="filters[search]" placeholder="{{ __('Name')}}" @if(isset($filters['search'])) value="{{$filters['search']}}" @endif/>
+                </div>
+    
+                <div class="filter-box form-group col-md-2">
+                    <button type="submit" class="form-control btn btn-primary">{{__('Search')}}</button>
+                </div>
+            </div>
+        </form>
+
         <table class="table table-striped list-table">
             <thead>
             <tr>
@@ -32,7 +50,7 @@
             </tbody>
         </table>
         @include('layouts.admin.table-footer', 
-            ['moduleName' => 'users', 'createButtonText' => trans('user.New User'), 'obj' => $users]
+            ['moduleName' => 'users', 'createButtonText' => trans('user.New User'), 'obj' => $users, 'isExcelExportIncluded' => true, 'filters' => $filters]
         )
     <div>
 @endsection

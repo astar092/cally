@@ -36,6 +36,10 @@ Route::group(
             'users' => UserController::class,
             'roles' => RoleController::class,
         ], ['show']);
+
+        // export
+        Route::get('users/excel/export', [UserController::class, 'exportExcel'])->name('users.export.excel');
+
     }
 );
 

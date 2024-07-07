@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+use Illuminate\Http\Request;
+use App\Exports\UserExport;
+
+use Carbon\Carbon;
+
 class UserController extends Controller
 {
     private int $perpage;
@@ -21,17 +26,22 @@ class UserController extends Controller
     	$this->perpage = config('constants.perpage');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         Gate::authorize('view-users');
 
-        $users = User::with('roles')->orderBy('id', 'asc')->paginate($this->perpage);
+        $users = User::with('roles');
+        $filters = $request->input('filters', []);
+        $this->applyFilters($filters, $users);
+
+        $users = $users->orderBy('id', 'asc')->paginate($this->perpage);
 
         return view(
             'admin.user.index', 
             [
                 'page_title' => trans('Users'),
-                'users' => $users
+                'users' => $users,
+                'filters' => $filters,
             ]
         );
     }
@@ -102,8 +112,29 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->withSuccess(trans('user.success_deletion'));
     }
 
+    public function exportExcel(Request $request) {
+        Gate::authorize('view-users');
+        
+        $users = User::with(['roles']);
+
+        $filters = $request->input('filters');
+        $this->applyFilters($filters, $users);
+
+        $users = $users->orderBy('updated_at', 'DESC')->get();
+        $formattedTodayDate = Carbon::now()->format('d.m.Y');
+
+        return (new UserExport($users))
+            ->download('user_'.$formattedTodayDate.'.xlsx');
+    }
+
     private function assignToRoleFromRoleId(int $roleId, User $user): void {
         $role = Role::find($roleId);
         $user->assignRole($role->name);
+    }
+
+    private function applyFilters(&$filters, $users) {
+        if (isset($filters['search'])) {
+            $users = $users->where('name', 'LIKE', '%'.$filters['search'].'%');
+        }
     }
 }
