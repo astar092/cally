@@ -70,3 +70,20 @@ function getNameLocale(json) {
     return json['name_'+locale];
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    let boxes = document.getElementsByClassName('parent-input').length;
+
+    function save() {
+        for (let i = 1; i <= boxes; i++) {
+            const checkbox = document.getElementById(String(i));
+            localStorage.setItem("checkbox" + String(i), checkbox.checked);
+        }
+    }
+
+    for (let i = 1; i <= boxes; i++) {
+        if (localStorage.length > 0) {
+            document.getElementById(String(i)).checked = JSON.parse(localStorage.getItem("checkbox" + String(i)));
+        }
+    }
+    window.addEventListener('change', save);
+});

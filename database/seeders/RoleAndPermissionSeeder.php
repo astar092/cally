@@ -8,6 +8,10 @@ use Spatie\Permission\Models\Role;
 
 class RoleAndPermissionSeeder extends Seeder
 {
+    private const PERMISSIONS = [
+        'users', 'roles', 'applications'
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -15,30 +19,26 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run()
     {
-        Permission::create(['name' => 'view-users']);
-        Permission::create(['name' => 'create-users']);
-        Permission::create(['name' => 'edit-users']);
-        Permission::create(['name' => 'delete-users']);
-
-        Permission::create(['name' => 'view-roles']);
-        Permission::create(['name' => 'create-roles']);
-        Permission::create(['name' => 'edit-roles']);
-        Permission::create(['name' => 'delete-roles']);
-
         $adminRole = Role::create(['name' => 'Admin']);
 
-        $adminRole->givePermissionTo([
-            'view-users',
-            'create-users',
-            'edit-users',
-            'delete-users',
-        ]);
+        foreach (self::PERMISSIONS as $permissionStr) {
+            Permission::create(['name' => 'view-'.$permissionStr]);
+            Permission::create(['name' => 'create-'.$permissionStr]);
+            Permission::create(['name' => 'edit-'.$permissionStr]);
+            Permission::create(['name' => 'delete-'.$permissionStr]);
+
+            $adminRole->givePermissionTo([
+                'view-'.$permissionStr,
+                'create-'.$permissionStr,
+                'edit-'.$permissionStr,
+                'delete-'.$permissionStr,
+            ]);
+        }
+
+        Permission::create(['name' => 'view-client-categories']);
+        Permission::create(['name' => 'edit-client-categories']);
         
-        $adminRole->givePermissionTo([
-            'view-roles',
-            'create-roles',
-            'edit-roles',
-            'delete-roles',
-        ]);
+        $adminRole->givePermissionTo(['view-client-categories']);
+        $adminRole->givePermissionTo(['edit-client-categories']);
     }
 }

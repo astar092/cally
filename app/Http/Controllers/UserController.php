@@ -96,7 +96,7 @@ class UserController extends Controller
         $inputs['is_active'] = $inputs['is_active'] === "true" ? 1 : 0;
 
         $user->fill($inputs)->save();
-        $user->syncRoles([$inputs['role_id']]);
+        $this->assignToRoleFromRoleId($inputs['role_id'], $user);
 
         return redirect()->route('admin.users.index')->withSuccess(trans('user.success_edition'));
     }

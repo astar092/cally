@@ -20,28 +20,32 @@
 	@guest
 	@else
 		@canany(['view-users', 'view-roles'])
-			<div class="faq-item">
-				<input class="faq-input" type="checkbox" id="1">
-				<label class="faq-title" for="1">{{__('Пользователь')}}</label>
-				<div class="faq-text">
-					<div class="header"></div>
+			<div class="parent-item">
+				<input class="parent-input" type="checkbox" id="1">
+				<label class="parent-title" for="1">{{__('Administration')}}</label>
+
+				<div class="child-text">
 					@can('view-users')
-						<a class="item {{(Route::currentRouteName() == 'admin.users') ? 'active' : '' }}"
-						href="{{ route('admin.users.index') }}"
-						>
+						<a class="item {{(Route::currentRouteName() == 'admin.users.index') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
 							{{__('user.Users')}}
 						</a>
 					@endcan
 					@can('view-roles')
-						<a class="item {{(Route::currentRouteName() == 'admin.userroles') ? 'active' : '' }}"
-						href="{{ route('admin.roles.index') }}"
-						>
+						<a class="item {{(Route::currentRouteName() == 'admin.userroles.index') ? 'active' : '' }}" href="{{ route('admin.roles.index') }}">
 							{{__('user.User Roles')}}
 						</a>
 					@endcan
 				</div>
 			</div>
 		@endcanany
+
+		@can('view-applications')
+			<div class="parent-item">
+				<a class="parent-link {{(Route::currentRouteName() == 'admin.applications.index') ? 'active' : '' }}" href="{{ route('admin.applications.index') }}">
+					{{__('application.Applications')}}
+				</a>
+			</div>
+		@endcan
 	@endguest
 </div>
 
@@ -57,16 +61,4 @@
 			@csrf
 		</form>
 	@endguest
-	
-	<div class="change-language js-change-language">
-		<i class="globe icon"></i>
-	</div>
-	<div class="change-language-select-block hidden">
-		<div class="form-group">
-			<select class="ui dropdown">
-				<option value="ru" @if(Config::get('app.locale') == "ru") selected @endif>RU</option>
-				<option value="kg" @if(Config::get('app.locale') == "kg") selected @endif>KG</option>
-			</select>
-		</div>
-	</div>
 </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::group(
         Route::resources([
             'users' => UserController::class,
             'roles' => RoleController::class,
+            'applications' => ApplicationController::class,
         ], ['show']);
 
         // export
