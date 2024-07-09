@@ -42,67 +42,67 @@ class ApplicationController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        Gate::authorize('create-roles');
+    // public function create()
+    // {
+    //     Gate::authorize('create-roles');
 
-        $permissions = Permission::all();
+    //     $permissions = Permission::all();
 
-        return view(
-            'admin.role.create', 
-            [
-                'page_title' => trans('user.New Role'),
-                'permissions' => $permissions,
-            ]
-        );
-    }
+    //     return view(
+    //         'admin.role.create', 
+    //         [
+    //             'page_title' => trans('user.New Role'),
+    //             'permissions' => $permissions,
+    //         ]
+    //     );
+    // }
 
-    public function store(StoreRoleRequest $request)
-    {
-        $inputs = $request->validated();
-        $role = Role::create($inputs);
-        $role->syncPermissions(array_keys($inputs['permissions']));
+    // public function store(StoreRoleRequest $request)
+    // {
+    //     $inputs = $request->validated();
+    //     $role = Role::create($inputs);
+    //     $role->syncPermissions(array_keys($inputs['permissions']));
 
-        return redirect()->route('admin.roles.index')->withSuccess(trans('user.role_success_creation'));
-    }
+    //     return redirect()->route('admin.roles.index')->withSuccess(trans('user.role_success_creation'));
+    // }
 
-    public function edit($id)
-    {
-        Gate::authorize('edit-roles');
+    // public function edit($id)
+    // {
+    //     Gate::authorize('edit-roles');
 
-        $permissions = Permission::all();
-        $role = Role::with('permissions')->find($id);
-        $selectedPermissionIds = $role->permissions->pluck('id')->toArray();
+    //     $permissions = Permission::all();
+    //     $role = Role::with('permissions')->find($id);
+    //     $selectedPermissionIds = $role->permissions->pluck('id')->toArray();
 
-        return view(
-            'admin.role.edit', 
-            [
-                'page_title' => trans('user.Edit Role'),
-                'role' => $role,
-                'permissions' => $permissions,
-                'selectedPermissionIds' => $selectedPermissionIds,
-            ]
-        );
-    }
+    //     return view(
+    //         'admin.role.edit', 
+    //         [
+    //             'page_title' => trans('user.Edit Role'),
+    //             'role' => $role,
+    //             'permissions' => $permissions,
+    //             'selectedPermissionIds' => $selectedPermissionIds,
+    //         ]
+    //     );
+    // }
     
-    public function update(UpdateRoleRequest $request, Role $role)
-    {
-        $inputs = $request->validated();
-        $role->fill($inputs)->save();
-        $role->syncPermissions(array_keys($inputs['permissions']));
+    // public function update(UpdateRoleRequest $request, Role $role)
+    // {
+    //     $inputs = $request->validated();
+    //     $role->fill($inputs)->save();
+    //     $role->syncPermissions(array_keys($inputs['permissions']));
 
-        return redirect()->route('admin.roles.index')->withSuccess(trans('user.role_success_edition'));
-    }
+    //     return redirect()->route('admin.roles.index')->withSuccess(trans('user.role_success_edition'));
+    // }
 
-    public function destroy($id)
-    {
-        Gate::authorize('delete-roles');
+    // public function destroy($id)
+    // {
+    //     Gate::authorize('delete-roles');
 
-        $role = Role::find($id);
-        $role->delete();
+    //     $role = Role::find($id);
+    //     $role->delete();
 
-        return redirect()->route('admin.roles.index')->withSuccess(trans('user.role_success_deletion'));
-    }
+    //     return redirect()->route('admin.roles.index')->withSuccess(trans('user.role_success_deletion'));
+    // }
 
     private function applyFilters(&$filters, $applications) {
         if(isset($filters)) {
