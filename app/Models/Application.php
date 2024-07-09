@@ -23,16 +23,23 @@ class Application extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public const APPLICATION_STATUS = [
+    public const APPLICATION_STATUSSES = [
         "NEW" => 1,
         "CANCELLED_BY_CLIENT" => 3,
         "IN_PROGRESS" => 4,
+    ];
+
+    public const APPLICATION_TYPES = [
+        "WAITER_CALL" => 1,
+        "CHEQUE_CALL" => 2,
+        "SHISHA_CALL" => 3,
     ];
 
     protected $fillable = [
         'service_id',
         'status',
         'created_by',
+        'application_type',
         'confirmed_by',
         'description'
     ];

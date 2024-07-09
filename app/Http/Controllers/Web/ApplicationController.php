@@ -26,21 +26,19 @@ class ApplicationController extends Controller
 
         $applications = Application::with('createdBy')->orderBy('updated_at', 'desc');
 
-        $filters = $request->input('filters');
-        if(isset($filters)) {
-            if(isset($filters['application_status'])) {
-                $applications->where('status', $filters['application_status']);
-            }
-        }
+        $filters = $request->input('filters', []);
+        $this->applyFilters($filters, $applications);
             
         $applications = $applications->paginate($this->perpage);
-        $statuses = config('constants.application_status');
+        $applicationStatusses = Application::APPLICATION_STATUSSES;
+        $applicationTypes = Application::APPLICATION_TYPES;
 
         return view('admin.application.index', [
             'page_title' => __('application.Applications'),
             'applications' => $applications,
             'filters' => $filters,
-            'statuses' => $statuses,
+            'applicationStatusses' => $applicationStatusses,
+            'applicationTypes' => $applicationTypes,
         ]);
     }
 
@@ -104,5 +102,19 @@ class ApplicationController extends Controller
         $role->delete();
 
         return redirect()->route('admin.roles.index')->withSuccess(trans('user.role_success_deletion'));
+    }
+
+    private function applyFilters(&$filters, $applications) {
+        if(isset($filters)) {
+            if(isset($filters['application_status'])) {
+                $filters['application_status'] = (int)$filters['application_status'];
+                $applications->where('status', $filters['application_status']);
+            }
+
+            if(isset($filters['application_type'])) {
+                $filters['application_type'] = (int)$filters['application_type'];
+                $applications->where('status', $filters['application_type']);
+            }
+        }
     }
 }

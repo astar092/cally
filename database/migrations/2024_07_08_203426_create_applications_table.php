@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->integer('status');
+            $table->integer('application_type');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('confirmed_by')->nullable();
             $table->text('description')->nullable();

@@ -10,9 +10,19 @@
                 <div class="filter-box form-group col-md-3">
                     <select class="form-control" name="filters[application_status]">
                         <option value="">{{__('Not selected')}}</option>
-                        @foreach ($statuses as $key=>$status)
-                            <option value="{{$key}}" @if ($key == ($filters['application_status'] ?? null)) selected @endif>
-                                {{__("application.".$statuses[$key])}}
+                        @foreach ($applicationStatusses as $key => $status)
+                            <option value="{{$status}}" @if ($status === ($filters['application_status'] ?? null)) selected @endif>
+                                {{__("application.APPLICATION_STATUSSES.".$key)}}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="filter-box form-group col-md-3">
+                    <select class="form-control" name="filters[application_type]">
+                        <option value="">{{__('Not selected')}}</option>
+                        @foreach ($applicationTypes as $key => $type)
+                            <option value="{{$type}}" @if ($type === ($filters['types'] ?? null)) selected @endif>
+                                {{__("application.TYPES.".$key)}}
                             </option>
                         @endforeach
                     </select>

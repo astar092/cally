@@ -17,7 +17,7 @@ use App\Http\Controllers\Web\ApplicationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {

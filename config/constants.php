@@ -12,5 +12,10 @@ return [
         4 => 'In Progress',
         5 => 'Confirmed',
         6 => 'Done',
-    ]
+    ],
+    // 'application_types' => [
+    //     1 => 'Waiter Call',
+    //     2 => 'Cheque Call',
+    //     3 => 'Shisha Call',
+    // ]
 ];
